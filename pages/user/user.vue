@@ -50,6 +50,10 @@
 					<text class="num">20</text>
 					<text>积分</text>
 				</view>
+				<view class="tj-item" @click="navTo('/pages/personal/team/team')">
+					<text class="num">10</text>
+					<text>我的团队</text>
+				</view>
 			</view>
 			<!-- 订单 -->
 			<view class="order-section">
@@ -85,7 +89,8 @@
 					<image @click="navTo('/pages/product/product')" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=191678693,2701202375&fm=26&gp=0.jpg" mode="aspectFill"></image>
 				</scroll-view>
 				<list-cell icon="icon-iconfontweixin" iconColor="#e07472" title="我的钱包" tips="您的会员还有3天过期"></list-cell>
-				<list-cell icon="icon-dizhi" iconColor="#5fcda2" title="地址管理" @eventClick="navTo('/pages/address/address')"></list-cell>
+				<list-cell icon="icon-dizhi" iconColor="#5fcda2" title="地址管理" @eventClick="
+				('/pages/address/address')"></list-cell>
 				<list-cell icon="icon-share" iconColor="#9789f7" title="分享" tips="邀请好友赢10万大礼"></list-cell>
 				<list-cell icon="icon-pinglun-copy" iconColor="#ee883b" title="晒单" tips="晒单抢红包"></list-cell>
 				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" iconColor="#54b4ef" title="我的收藏"></list-cell>
@@ -145,14 +150,19 @@
 			 * navigator标签现在默认没有转场动画，所以用view
 			 */
 			navTo(url){
-				if(!this.hasLogin){
-					url = '/pages/public/login';
-				}
+				// if(!this.hasLogin){
+				// 	url = '/pages/public/login';
+				// }
 				uni.navigateTo({  
 					url
 				})  
 			}, 
-	
+			toPage(e){
+				let url = e.target.getAtrribute('data-url');
+				uni.navigateTo({
+					url
+				})
+			},	
 			/**
 			 *  会员卡下拉和回弹
 			 *  1.关闭bounce避免ios端下拉冲突
