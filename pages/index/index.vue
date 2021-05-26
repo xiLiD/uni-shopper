@@ -256,6 +256,7 @@
 
 		onLoad() {
 			this.loadData();
+			console.log(this.$api)
 		},
 		methods: {
 			/**

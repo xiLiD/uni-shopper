@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<scroll-view scroll-y class="left-aside">
-			<view v-for="item in flist" :key="item.id" class="f-item b-b" :class="{active: item.id === currentId}" @click="tabtap(item)">
+			<view v-for="(item,index) in flist" :key="item.id" class="f-item b-b" :class="{active: item.id === currentId}" @click="tabtap(item)">
 				{{item.name}}
 			</view>
 		</scroll-view>
@@ -52,17 +52,17 @@
 				if(!this.sizeCalcState){
 					this.calcSize();
 				}
-				
-				this.currentId = item.id;
 				let index = this.slist.findIndex(sitem=>sitem.pid === item.id);
 				this.tabScrollTop = this.slist[index].top;
+				this.currentId = item.id;
 			},
 			//右侧栏滚动
 			asideScroll(e){
 				if(!this.sizeCalcState){
 					this.calcSize();
 				}
-				let scrollTop = e.detail.scrollTop;
+				// let scrollTop = e.detail.scrollTop;
+				let scrollTop = this.tabScrollTop;
 				let tabs = this.slist.filter(item=>item.top <= scrollTop).reverse();
 				if(tabs.length > 0){
 					this.currentId = tabs[0].pid;

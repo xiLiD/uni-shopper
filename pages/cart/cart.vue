@@ -388,4 +388,15 @@
 	.cart-item .checkbox.checked{
 		color: $uni-color-primary;
 	}
+	.cart-list {
+		padding: 30rpx 40rpx;
+		.cart-item {
+			box-shadow: 0 0 5px 2px #ddd;
+			border-radius: 10px;
+			margin-top:10px;
+			&:first-child {
+				margin-top:0;
+			}
+		}
+	}
 </style>

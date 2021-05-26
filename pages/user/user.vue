@@ -218,7 +218,12 @@
 	  background: #fff;
 	  border-radius: 10upx;
 	}
-
+	.content {
+		border-bottom: 1px solid #ddd;
+		&:last-child{
+			border:none;
+		}
+	}
 	.user-section{
 		height: 520upx;
 		padding: 100upx 30upx 0;
